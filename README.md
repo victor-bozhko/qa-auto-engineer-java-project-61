@@ -1,2 +1,4 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/victor-bozhko/qa-auto-engineer-java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/victor-bozhko/qa-auto-engineer-java-project-61/actions)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=victor-bozhko_qa-auto-engineer-java-project-612&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=victor-bozhko_qa-auto-engineer-java-project-612)
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=victor-bozhko_qa-auto-engineer-java-project-612)](https://sonarcloud.io/summary/new_code?id=victor-bozhko_qa-auto-engineer-java-project-612)
