@@ -2,7 +2,7 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-import static hexlet.code.Cli.sendName;
+import static hexlet.code.Cli.greetUser;
 import static hexlet.code.Even.startEvenGame;
 
 
@@ -18,7 +18,7 @@ public class App {
             case 0:
                 break;
             case 1:
-                sendName();
+                greetUser();
                 break;
             case 2:
                 startEvenGame();
