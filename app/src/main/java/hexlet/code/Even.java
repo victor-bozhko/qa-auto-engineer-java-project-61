@@ -1,7 +1,6 @@
 package hexlet.code;
 
 import java.util.Scanner;
-import java.util.Random;
 
 import static hexlet.code.Cli.greetUser;
 
@@ -16,10 +15,8 @@ public class Even {
         int correctAnswersCount = 0;
         final int answersToWin = 3;
 
-        Random random = new Random();
-
         while (correctAnswersCount < answersToWin) {
-            int number = random.nextInt(100) + 1;
+            int number = (int) (Math.random() * 1001);
 
             System.out.println("Question: " + number);
             System.out.print("Your answer: ");
