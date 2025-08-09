@@ -29,7 +29,7 @@ public class GCD {
         int gcd = Math.min(a, b);
 
         while (gcd > 0)  {
-            if(a % gcd == 0 && b % gcd == 00) {
+            if(a % gcd == 0 && b % gcd == 0) {
                 break;
             }
             gcd--;
