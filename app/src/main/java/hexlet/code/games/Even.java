@@ -1,46 +1,25 @@
 package hexlet.code.games;
 
-import java.util.Scanner;
-
-import static hexlet.code.Cli.greetUser;
+import hexlet.code.Engine;
+import java.util.Random;
 
 public class Even {
-
     public static void startEvenGame() {
-        String userName = greetUser();
-        Scanner scanner = new Scanner(System.in);
+        String gameDescription = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+        String[] questions = new String[3];
+        String[] correctAnswers = new String[3];
 
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-
-        int correctAnswersCount = 0;
-        final int answersToWin = 3;
-
-        while (correctAnswersCount < answersToWin) {
-            int number = (int) (Math.random() * 1001);
-
-            System.out.println("Question: " + number);
-            System.out.print("Your answer: ");
-            String userAnswer = scanner.nextLine().toLowerCase();
-
-            String correctAnswer = isEven(number) ? "yes" : "no";
-
-            if (userAnswer.equals(correctAnswer)) {
-                System.out.println("Correct!");
-                correctAnswersCount++;
-            } else {
-                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '"
-                        + correctAnswer + "'.");
-                System.out.println("Let's try again, " + userName + "!");
-                scanner.close();
-                return;
-            }
+        Random random = new Random();
+        for (int i = 0; i < 3; i++) {
+            int number = random.nextInt(1001);
+            questions[i] = Integer.toString(number);
+            correctAnswers[i] = isEven(number) ? "yes" : "no";
         }
 
-        System.out.println("Congratulations, " + userName + "!");
-        scanner.close();
+        Engine.runGame(gameDescription, questions, correctAnswers);
     }
 
-    public static boolean isEven(int number) {
+    private static boolean isEven(int number) {
         return number % 2 == 0;
     }
 }

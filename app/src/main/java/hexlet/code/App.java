@@ -28,7 +28,7 @@ public class App {
                 startCalcGame();
                 break;
             default:
-                System.out.println("The selected value is missing from the list");
+                System.out.println("The selected value " + action + " is missing from the list");
                 break;
         }
     }

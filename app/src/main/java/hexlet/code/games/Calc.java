@@ -1,66 +1,38 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
 import java.util.Random;
-import java.util.Scanner;
-
-import static hexlet.code.Cli.greetUser;
 
 public class Calc {
-
     public static void startCalcGame() {
-        String userName = greetUser();
-        Scanner scanner = new Scanner(System.in);
+        String gameDescription = "What is the result of the expression?";
+        String[] questions = new String[3];
+        String[] correctAnswers = new String[3];
 
-        System.out.println("What is the result of the expression?");
-
-        int correctAnswersCount = 0;
-        final int answersToWin = 3;
-
-        while (correctAnswersCount < answersToWin) {
-            Random random = new Random();
+        Random random = new Random();
+        for (int i = 0; i < 3; i++) {
             int num1 = random.nextInt(10) + 1;
             int num2 = random.nextInt(10) + 1;
-
             int operation = random.nextInt(3);
-
-            int result = 0;
-            String operator = "";
 
             switch (operation) {
                 case 0:
-                    result = num1 + num2;
-                    operator = "+";
+                    questions[i] = num1 + " + " + num2;
+                    correctAnswers[i] = Integer.toString(num1 + num2);
                     break;
                 case 1:
-                    result = num1 - num2;
-                    operator = "-";
+                    questions[i] = num1 + " - " + num2;
+                    correctAnswers[i] = Integer.toString(num1 - num2);
                     break;
                 case 2:
-                    result = num1 * num2;
-                    operator = "*";
+                    questions[i] = num1 + " * " + num2;
+                    correctAnswers[i] = Integer.toString(num1 * num2);
                     break;
-            }
-
-            System.out.println("Question: " + num1 + " " + operator + " " + num2);
-            System.out.print("Your answer: ");
-            int userAnswer = scanner.nextInt();
-
-            int correctAnswer = result;
-
-            if (userAnswer == correctAnswer) {
-                System.out.println("Correct!");
-                correctAnswersCount++;
-            } else {
-                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '"
-                        + correctAnswer + "'.");
-                System.out.println("Let's try again, " + userName + "!");
-                scanner.close();
-                return;
+                default:
+                    break;
             }
         }
 
-        System.out.println("Congratulations, " + userName + "!");
-        scanner.close();
+        Engine.runGame(gameDescription, questions, correctAnswers);
     }
 }
-
