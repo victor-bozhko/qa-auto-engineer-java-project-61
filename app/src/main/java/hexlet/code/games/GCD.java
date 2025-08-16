@@ -1,8 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-
-import java.util.Random;
+import hexlet.code.Utils;
 
 public class GCD {
     public static void startGCDGame() {
@@ -10,10 +9,9 @@ public class GCD {
         String[] questions = new String[3];
         String[] correctAnswers = new String[3];
 
-        Random random = new Random();
         for (int i = 0; i < 3; i++) {
-            int num1 = random.nextInt(101);
-            int num2 = random.nextInt(101);
+            int num1 = Utils.generateNumber(0, 100);
+            int num2 = Utils.generateNumber(0, 100);
             questions[i] = num1 + " " + num2;
             correctAnswers[i] = Integer.toString(findDivider(num1, num2));
         }
