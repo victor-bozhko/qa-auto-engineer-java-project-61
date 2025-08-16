@@ -15,22 +15,28 @@ public class Engine {
 
         int correctAnswersCount = 0;
         final int answersToWin = 3;
+        int index = 0;
 
-        while (correctAnswersCount < answersToWin) {
-            System.out.println("Question: " + questions[correctAnswersCount]);
+        for (String question : questions) {
+            if (correctAnswersCount >= answersToWin) {
+                break;
+            }
+
+            System.out.println("Question: " + question);
             System.out.print("Your answer: ");
             String userAnswer = scanner.next().toLowerCase();
 
-            if (userAnswer.equals(correctAnswers[correctAnswersCount])) {
+            if (userAnswer.equals(correctAnswers[index])) {
                 System.out.println("Correct!");
                 correctAnswersCount++;
             } else {
                 System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '"
-                        + correctAnswers[correctAnswersCount] + "'.");
+                        + correctAnswers[index] + "'.");
                 System.out.println("Let's try again, " + userName + "!");
                 scanner.close();
                 return;
             }
+            index++;
         }
 
         System.out.println("Congratulations, " + userName + "!");
