@@ -13,7 +13,7 @@ public class Progression {
 
         for (int i = 0; i < 3; i++) {
             int start = random.nextInt(11);
-            int step = random.nextInt(3,9);
+            int step = random.nextInt(3, 9);
             int hiddenIndex = random.nextInt(7);
 
             int[] progression = new int[7];
