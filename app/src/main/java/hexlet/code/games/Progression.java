@@ -18,9 +18,7 @@ public class Progression {
 
             int[] progression = new int[7];
 
-            for (int j = 0; j < 7; j++) {
-                progression[j] = start + j * step;
-            }
+            makeProgression(progression, start, step);
 
             String[] stringWithMissingElement = new String[7];
             for (int j = 0; j < 7; j++) {
@@ -44,5 +42,11 @@ public class Progression {
         }
 
         Engine.runGame(gameDescription, questions, correctAnswers);
+    }
+
+    private static void makeProgression(int[] progression, int start, int step) {
+        for (int j = 0; j < 7; j++) {
+            progression[j] = start + j * step;
+        }
     }
 }
