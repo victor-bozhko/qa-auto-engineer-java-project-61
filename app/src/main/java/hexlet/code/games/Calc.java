@@ -27,7 +27,7 @@ public class Calc {
                     questionsAndAnswers[i][1] = Integer.toString(num1 * num2);
                     break;
                 default:
-                    break;
+                    throw new RuntimeException("Unknown user choice" + operation);
             }
         }
 
