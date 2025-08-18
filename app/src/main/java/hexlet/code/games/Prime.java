@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 import java.util.Random;
 
@@ -10,18 +11,13 @@ public class Prime {
         String[] questions = new String[3];
         String[] correctAnswers = new String[3];
 
-        Random random = new Random();
         for (int i = 0; i < 3; i++) {
-            int number = generateRandomOddNumber(random);
+            int number = Utils.generateNumber(0, 25) * 2 + 1;
             questions[i] = Integer.toString(number);
             correctAnswers[i] = isPrime(number) ? "yes" : "no";
         }
 
         Engine.runGame(gameDescription, questions, correctAnswers);
-    }
-
-    private static int generateRandomOddNumber(Random random) {
-        return random.nextInt(25) * 2 + 1;
     }
 
     private static boolean isPrime(int number) {
