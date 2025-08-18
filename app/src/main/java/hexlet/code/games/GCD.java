@@ -13,14 +13,14 @@ public class GCD {
             int num1 = Utils.generateNumber(0, 100);
             int num2 = Utils.generateNumber(0, 100);
             questions[i] = num1 + " " + num2;
-            correctAnswers[i] = Integer.toString(findDivider(num1, num2));
+            correctAnswers[i] = Integer.toString(gcd(num1, num2));
         }
 
         Engine.runGame(gameDescription, questions, correctAnswers);
 
     }
 
-    private static int findDivider(int num1, int num2) {
+    private static int gcd(int num1, int num2) {
         int a = Math.abs(num1);
         int b = Math.abs(num2);
 
