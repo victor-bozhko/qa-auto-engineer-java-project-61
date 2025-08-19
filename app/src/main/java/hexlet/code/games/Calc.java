@@ -11,18 +11,20 @@ public class Calc {
         for (int i = 0; i < 3; i++) {
             int num1 = Utils.generateNumber(0, 10);
             int num2 = Utils.generateNumber(0, 10);
-            int operation = Utils.generateNumber(0, 2);
+            String operators = "+-*";
+            int operationIndex = Utils.generateNumber(0, 2);
+            char operation = operators.charAt(operationIndex);
 
             switch (operation) {
-                case 0:
+                case '+':
                     questionsAndAnswers[i][0] = num1 + " + " + num2;
                     questionsAndAnswers[i][1] = Integer.toString(num1 + num2);
                     break;
-                case 1:
+                case '-':
                     questionsAndAnswers[i][0] = num1 + " - " + num2;
                     questionsAndAnswers[i][1] = Integer.toString(num1 - num2);
                     break;
-                case 2:
+                case '*':
                     questionsAndAnswers[i][0] = num1 + " * " + num2;
                     questionsAndAnswers[i][1] = Integer.toString(num1 * num2);
                     break;
