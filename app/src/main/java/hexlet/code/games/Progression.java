@@ -4,49 +4,38 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Progression {
+    private static final int PROGRESSION_LENGTH = 7;
+    private static final int QUESTIONS_COUNT = 3;
+
     public static void startProgressionGame() {
         String gameDescription = "What number is missing in the progression?";
-        String[] questions = new String[3];
-        String[] correctAnswers = new String[3];
+        String[] questions = new String[QUESTIONS_COUNT];
+        String[] correctAnswers = new String[QUESTIONS_COUNT];
 
         Random random = new Random();
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < QUESTIONS_COUNT; i++) {
             int start = random.nextInt(11);
             int step = random.nextInt(3, 9);
-            int hiddenIndex = random.nextInt(7);
+            int hiddenIndex = random.nextInt(PROGRESSION_LENGTH);
 
-            int[] progression = new int[7];
-
-            makeProgression(progression, start, step);
-
-            String[] stringWithMissingElement = new String[7];
-            for (int j = 0; j < 7; j++) {
-                if (j == hiddenIndex) {
-                    stringWithMissingElement[j] = "..";
-                } else {
-                    stringWithMissingElement[j] = String.valueOf(progression[j]);
-                }
-            }
-
-            String question = "";
-            for (int j = 0; j < stringWithMissingElement.length; j++) {
-                question += stringWithMissingElement[j];
-                if (j < stringWithMissingElement.length - 1) {
-                    question += " ";
-                }
-            }
+            String[] progression = makeProgression(start, step);
+            String answer = progression[hiddenIndex];
+            progression[hiddenIndex] = "..";
+            String question = String.join(" ", progression);
 
             questions[i] = question;
-            correctAnswers[i] = String.valueOf(progression[hiddenIndex]);
+            correctAnswers[i] = answer;
         }
 
         Engine.runGame(gameDescription, questions, correctAnswers);
     }
 
-    private static void makeProgression(int[] progression, int start, int step) {
-        for (int j = 0; j < 7; j++) {
-            progression[j] = start + j * step;
+    private static String[] makeProgression(int start, int step) {
+        String[] progression = new String[Progression.PROGRESSION_LENGTH];
+        for (int j = 0; j < Progression.PROGRESSION_LENGTH; j++) {
+            progression[j] = String.valueOf(start + j * step);
         }
+        return progression;
     }
 }
