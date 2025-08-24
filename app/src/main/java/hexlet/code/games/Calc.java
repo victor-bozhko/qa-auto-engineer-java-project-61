@@ -32,15 +32,6 @@ public class Calc {
                     throw new RuntimeException("Unknown user choice" + operation);
             }
         }
-
-        String[] questions = new String[3];
-        String[] correctAnswers = new String[3];
-
-        for (int i = 0; i < 3; i++) {
-            questions[i] = questionsAndAnswers[i][0];
-            correctAnswers[i] = questionsAndAnswers[i][1];
-        }
-
-        Engine.runGame(gameDescription, questions, correctAnswers);
+        Engine.runGame(gameDescription, questionsAndAnswers);
     }
 }

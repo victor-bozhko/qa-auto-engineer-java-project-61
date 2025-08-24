@@ -9,8 +9,8 @@ public class Progression {
 
     public static void startProgressionGame() {
         String gameDescription = "What number is missing in the progression?";
-        String[] questions = new String[QUESTIONS_COUNT];
-        String[] correctAnswers = new String[QUESTIONS_COUNT];
+        String[][] questionsAndAnswers = new String[3][2];
+
 
         Random random = new Random();
 
@@ -24,11 +24,11 @@ public class Progression {
             progression[hiddenIndex] = "..";
             String question = String.join(" ", progression);
 
-            questions[i] = question;
-            correctAnswers[i] = answer;
+            questionsAndAnswers[i][0] = question;
+            questionsAndAnswers[i][1] = answer;
         }
 
-        Engine.runGame(gameDescription, questions, correctAnswers);
+        Engine.runGame(gameDescription, questionsAndAnswers);
     }
 
     private static String[] makeProgression(int start, int step) {

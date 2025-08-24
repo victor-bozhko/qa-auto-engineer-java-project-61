@@ -6,16 +6,16 @@ import hexlet.code.Utils;
 public class Prime {
     public static void startPrimeGame() {
         String gameDescription = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        String[] questions = new String[3];
-        String[] correctAnswers = new String[3];
+        String[][] questionsAndAnswers = new String[3][2];
+
 
         for (int i = 0; i < 3; i++) {
             int number = Utils.generateNumber(0, 25) * 2 + 1;
-            questions[i] = Integer.toString(number);
-            correctAnswers[i] = isPrime(number) ? "yes" : "no";
+            questionsAndAnswers[i][0] = Integer.toString(number);
+            questionsAndAnswers[i][1] = isPrime(number) ? "yes" : "no";
         }
 
-        Engine.runGame(gameDescription, questions, correctAnswers);
+        Engine.runGame(gameDescription, questionsAndAnswers);
     }
 
     private static boolean isPrime(int number) {

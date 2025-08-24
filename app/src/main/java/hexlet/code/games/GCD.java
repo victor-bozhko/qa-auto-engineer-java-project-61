@@ -6,17 +6,17 @@ import hexlet.code.Utils;
 public class GCD {
     public static void startGCDGame() {
         String gameDescription = "Find the greatest common divisor of given numbers.";
-        String[] questions = new String[3];
-        String[] correctAnswers = new String[3];
+        String[][] questionsAndAnswers = new String[3][2];
+
 
         for (int i = 0; i < 3; i++) {
             int num1 = Utils.generateNumber(0, 100);
             int num2 = Utils.generateNumber(0, 100);
-            questions[i] = num1 + " " + num2;
-            correctAnswers[i] = Integer.toString(gcd(num1, num2));
+            questionsAndAnswers[i][0] = num1 + " " + num2;
+            questionsAndAnswers[i][1] = Integer.toString(gcd(num1, num2));
         }
 
-        Engine.runGame(gameDescription, questions, correctAnswers);
+        Engine.runGame(gameDescription, questionsAndAnswers);
 
     }
 
